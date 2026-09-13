@@ -447,6 +447,13 @@ func main() {
 	initAuthTable()
 	r := mux.NewRouter()
 
+	// Health check publik untuk Render/Railway (tidak perlu login).
+	r.HandleFunc("/api/health", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		_, _ = w.Write([]byte(`{"status":"ok","service":"kasir-madura-api"}`))
+	}).Methods("GET")
+
 	// ===== Publik =====
 	r.HandleFunc("/api/login", loginHandler).Methods("POST")
 

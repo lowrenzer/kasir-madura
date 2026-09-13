@@ -1,0 +1,18 @@
+# Render.com Blueprint — Kasir Madura Backend
+# Deploy otomatis: connect repo -> Render baca file ini
+services:
+  - type: web
+    name: kasir-madura-api
+    runtime: go
+    plan: free
+    rootDir: backend
+    buildCommand: go build -o main .
+    startCommand: ./main
+    healthCheckPath: /api/health
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
