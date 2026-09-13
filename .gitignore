@@ -1,0 +1,41 @@
+# Go
+backend/*.exe
+backend/*.test
+backend/vendor/
+
+# Database and local runtime data
+backend/*.db
+backend/*.db-shm
+backend/*.db-wal
+backend/*.db-journal
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Flutter
+frontend/.dart_tool/
+frontend/build/
+frontend/.packages
+frontend/.flutter-plugins
+frontend/.flutter-plugins-dependencies
+frontend/.metadata
+
+# IDE / OS
+.vscode/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+
+# Local tests/cache
+__pycache__/
+*.pyc
+.ghsetup/
